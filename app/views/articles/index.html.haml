@@ -1,18 +1,20 @@
-%table
+%h3{style: "text-align: center"} Welcome to the Articles Page
+.add-button
+  = link_to 'New Article', new_article_path, class: 'btn btn-primary'
+
+%table.table.table-bordered
   %tr
-    %th Title
-    %th Body Text
-    %th{style: "width: auto;"} Action
+    %th{style: "text-align: center"} Title
+    %th{style: "text-align: center"} Body Text
+    %th{style: "width: auto; text-align: center"} Action
   - @articles.each do |article|
     %tr
-      %td= article.title
-      %td= article.body
-      %td
+      %td{style: "text-align: center"}= article.title
+      %td{style: "text-align: center"}= article.body
+      %td{style: "text-align: center"}
         = link_to 'Show Article', article, class: 'btn btn-warning'
         = link_to 'Edit Article', edit_article_path(article), class: 'btn btn-primary'
         = link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
     - if @articles.size == 0
       %tr
         %td.center{colspan: "5"} Sorry: There are currently no users to display.
-
-= link_to 'New Article', new_article_path
