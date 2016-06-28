@@ -36,18 +36,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-  	#@article.destroy
-  	#redirect_to articles_path
-  	if @article.destroy
-      flash[:notice] = "Article was successfully destroyed."
-    else
-      flash[:error] = "There was an error completing the item."
-    end
+  	@article.destroy
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+  	redirect_to articles_path, flash: { notice: 'Article was successfully destroyed.' }
   end
 
   private
