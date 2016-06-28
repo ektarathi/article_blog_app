@@ -1,0 +1,20 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-type"}
+    %meta{charset: "UTF-8"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %meta{"http-equiv" => "X-UA-Compatible", content: "IE=edge"}
+
+    %title
+
+    = stylesheet_link_tag 'application', media: "all"
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+
+  %body{id: params[:controller].split('/').last}
+    .container
+      = render partial: 'shared/flash', locals: { flash: flash }
+      .row
+        .col-lg-12
+          = yield :layout
