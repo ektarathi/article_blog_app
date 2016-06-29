@@ -1,3 +1,19 @@
-%p= @article.title
-%p= @article.body
-%p= time_ago_in_words(@article.created_at)
+.article
+  .article-heading
+    .heading-text
+      %h2= @article.title
+      %p Posted on : #{@article.created_at.strftime('%v')} | Created #{time_ago_in_words(@article.created_at)} ago
+    #button
+      = link_to 'Back', articles_path, class: 'btn btn-primary'
+  .article-body
+    %p= @article.body
+
+.comment-section
+  %ul
+    %li.active
+      %h4 #{@article.comments.count} Comment
+  = render partial: @article.comments
+
+  .comment-form
+    %h4 Add a Comment
+    = render partial: "comments/form"
