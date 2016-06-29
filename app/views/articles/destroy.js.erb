@@ -1,5 +1,0 @@
-<% if @article.destroyed? %>
-  $('#article-' +<%= @article.id %>).hide();
-<% else %>
-  $('#article-' +<%= @article.id %>).prepend("<%= flash[:error] %>");
-<% end %>

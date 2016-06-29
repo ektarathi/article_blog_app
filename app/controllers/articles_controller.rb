@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
   def index
   	@articles = Article.all.order('created_at DESC')
   end
+
+  def show
+  end
   
   def new
   	@article = Article.new
@@ -15,6 +18,7 @@ class ArticlesController < ApplicationController
 
   def create
   	@article = Article.new(allowed_params)
+    
   	if @article.save
   		redirect_to articles_path, flash: { notice: 'Article was successfully created.' }
   	else
@@ -24,12 +28,9 @@ class ArticlesController < ApplicationController
   	#redirect_to @article
   end
 
-  def show
-  end
-
   def update
-  	if @article.update(allowed_params)
-      redirect_to articles_path
+  	if @article.update_attributes(allowed_params)
+      redirect_to articles_path, flash: { notice: 'Article was successfully updated.' }
     else
       render 'edit'
     end
