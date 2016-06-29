@@ -9,10 +9,11 @@
     %p= @article.body
 
 .comment-section
-  %ul
-    %li.active
-      %h4 #{@article.comments.count} Comment
-  = render partial: @article.comments
+  .comment-details
+    %ul
+      %li.active
+        %h4 #{@article.comments.count} Comment
+    = render partial: @article.comments
 
   .comment-form
     %h4 Add a Comment
