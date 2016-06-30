@@ -9,11 +9,6 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
-  def destroy
-    @comment.destroy
-    redirect_to article_path(@article), flash: { notice: 'Comment was successfully destroyed.' }
-  end
-
   private
 
   def set_comment
