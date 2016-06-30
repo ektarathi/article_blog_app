@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @user = User.new(allowed_params)
     
     if @user.save
-
-      puts "calling mail functionlity"
-      puts @user
-
       redirect_to articles_path, flash: { notice: 'User was successfully subscribed.' }
     else
       render 'new'

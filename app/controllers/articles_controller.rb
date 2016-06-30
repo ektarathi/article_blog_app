@@ -3,8 +3,6 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-  	#@articles = Article.search(params[:search])
-
     @articles = Article.all
       if params[:search]
         @articles = Article.search(params[:search]).order("created_at DESC")
