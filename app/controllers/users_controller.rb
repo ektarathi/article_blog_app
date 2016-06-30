@@ -12,9 +12,6 @@ class UsersController < ApplicationController
       puts "calling mail functionlity"
       puts @user
 
-      # Sends email to user when user is created.
-      UserMailer.sample_email(@user).deliver
-
       redirect_to articles_path, flash: { notice: 'User was successfully subscribed.' }
     else
       render 'new'
@@ -24,6 +21,6 @@ class UsersController < ApplicationController
   private
 
   def allowed_params
-    params.require(:user).permit(:email, :first_name, :last_name)
+    params.require(:user).permit(:email, :first_name, :last_name, :active)
   end
 end

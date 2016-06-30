@@ -1,1 +1,11 @@
-%p This is email content text.
+%h2 Dear #{@user.first_name},
+
+%h3= @article.title
+
+%h4 Thank you for subscribing with our blog post. We highly appreciate your interest in us.
+
+%p= @article.body
+
+%p= @user.token
+
+= link_to 'New article Posted', articles_url(@article.id), class: 'btn btn-warning'

@@ -3,7 +3,14 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@articles = Article.all.order('created_at DESC')
+  	#@articles = Article.search(params[:search])
+
+    @articles = Article.all
+      if params[:search]
+        @articles = Article.search(params[:search]).order("created_at DESC")
+      else
+        @articles = Article.all.order('created_at DESC')
+      end
   end
 
   def show
@@ -21,9 +28,12 @@ class ArticlesController < ApplicationController
     
   	if @article.save
 
+      articleName = @article
       User.all.each do |user|
-        # Sends email to all the user when article is created.
-        UserMailer.sample_email(user).deliver
+        if user.active
+          # Sends email to all the user when article is created.
+          UserMailer.sample_email(user, articleName).deliver
+        end
       end
 
   		redirect_to articles_path, flash: { notice: 'Article was successfully created.' }

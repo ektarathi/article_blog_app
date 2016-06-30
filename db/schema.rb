@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629214043) do
+ActiveRecord::Schema.define(version: 20160630204821) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160629214043) do
     t.datetime "updated_at"
     t.text     "first_name"
     t.text     "last_name"
+    t.boolean  "active",     default: true
+    t.string   "token"
   end
 
 end
