@@ -20,6 +20,12 @@ class ArticlesController < ApplicationController
   	@article = Article.new(allowed_params)
     
   	if @article.save
+
+      User.all.each do |user|
+        # Sends email to all the user when article is created.
+        UserMailer.sample_email(user).deliver
+      end
+
   		redirect_to articles_path, flash: { notice: 'Article was successfully created.' }
   	else
   		render 'new'
