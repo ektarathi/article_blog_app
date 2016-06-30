@@ -1,6 +1,7 @@
 = form_tag(articles_path, :method => "get", id: "search-form") do
   = text_field_tag :search, params[:search], placeholder: "Search Posts" 
   = submit_tag "Search", class: "btn btn-primary"
+  = link_to 'Back', articles_path , class: "btn btn-default"
 
 %h3{style: "text-align: center"} Welcome to the Articles Page
 .add-button
