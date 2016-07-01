@@ -6,7 +6,7 @@
 %h3{style: "text-align: center"} Welcome to the Articles Page
 .add-button
   = link_to 'New Article', new_article_path, class: 'btn btn-primary'
-  = link_to 'Subscribe', '#', class: 'btn btn-default', data: {toggle: 'modal', target: '#userSignUp'}
+  = link_to 'Subscribe', new_user_path, class: 'btn btn-default', remote: true
 
 %table.table.table-bordered
   %tr
@@ -24,21 +24,3 @@
     - if @articles.size == 0
       %tr
         %td.center{colspan: "5"} Sorry: There are currently no users to display.
-
-
-.modal.fade#userSignUp
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{data: {dismiss: 'modal'}}
-          &times;
-        %h4.modal-title
-          %p{style: "text-align: center"} Please enter your email address:
-      = bootstrap_form_for (User.new), url: users_path do |f|
-        .modal-body
-          = f.text_field :first_name, placeholder: 'FirstName', required: true
-          = f.text_field :last_name, placeholder: 'LastName'
-          = f.text_field :email, placeholder: 'EmailAddress', required: true
-        .modal-footer
-          = f.submit "Submit", class: 'btn btn-primary'
-          = link_to 'Back', articles_path, class: 'btn btn-default'

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   
   validates :first_name, :email, presence: true
 
+  validates :email, uniqueness: true
+
   before_create { generate_token(:token) }
 
   def generate_token(column)
