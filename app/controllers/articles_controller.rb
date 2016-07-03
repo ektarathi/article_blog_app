@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
   def destroy
   	@article.destroy
 
-  	redirect_to articles_path, flash: { notice: 'Article was successfully destroyed.' }
+  	redirect_to articles_path, flash: { notice: 'Article was successfully deleted.' }
   end
 
   private

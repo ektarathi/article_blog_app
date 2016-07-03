@@ -3,8 +3,6 @@
     .heading-text
       %h2= @article.title
       %p Posted on : #{@article.created_at.strftime('%v')} | Created #{time_ago_in_words(@article.created_at)} ago
-    #button
-      = link_to 'Back', articles_path, class: 'btn btn-primary'
   .article-body
     %p= @article.body
 

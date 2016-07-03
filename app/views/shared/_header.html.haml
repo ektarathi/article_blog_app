@@ -1,0 +1,16 @@
+%nav.navbar.navbar-default
+  %ul.nav.navbar-nav
+    %li.active
+      = link_to 'Home', root_path
+      %span.sr-only
+    %li.nav-item
+      = link_to 'New Article', new_article_path, class: 'nav-link'
+    %li.nav-item
+      = link_to 'Subscribe', new_user_path, class: 'nav-link', remote: true
+  %form.navbar-form.navbar-right
+    = form_tag(articles_path, :method => "get", id: "search-form") do
+      = text_field_tag :search, params[:search], placeholder: "Search Article", class: "form-control"
+      = submit_tag "Search", class: "btn btn-primary"
+
+
+
