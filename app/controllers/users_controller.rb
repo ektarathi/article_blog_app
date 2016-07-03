@@ -12,9 +12,7 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:notice] = 'User was successfully subscribed.'
-      respond_to do |format|
-        format.js { render js: "window.location = '/'" }
-      end
+      redirect_to_js root_path 
     else
       @user.errors.add(:email, 'is invalid')
       render :new
