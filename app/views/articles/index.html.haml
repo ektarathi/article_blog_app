@@ -8,11 +8,15 @@
   = link_to 'New Article', new_article_path, class: 'btn btn-primary'
   = link_to 'Subscribe', new_user_path, class: 'btn btn-default', remote: true
 
-%table.table.table-bordered
+%table.table.table-bordered.table-striped
+  %colgroup
+    %col.col-md-2
+    %col.col-md-6
+    %col.col-md-4
   %tr
     %th{style: "text-align: center"} Title
     %th{style: "text-align: center"} Article Content
-    %th{style: "width: auto; text-align: center"} Action
+    %th{style: "text-align: center"} Action
   - @articles.each do |article|
     %tr
       %td{style: "text-align: center"}= article.title
