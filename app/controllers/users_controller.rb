@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User was successfully subscribed.'
       redirect_to_js root_path 
     else
-      @user.errors.add(:email, 'is invalid')
+      @user.errors.add(:email, 'in not correct')
       render :new
     end
   end
