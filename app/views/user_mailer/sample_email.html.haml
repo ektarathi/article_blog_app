@@ -1,11 +1,11 @@
 %h2 Dear #{@user.first_name},
 
-%h3= @article.title
-
 %h4 Thank you for subscribing with our blog post. We highly appreciate your interest in us.
 
 %p= @article.body
 
-%p= @user.token
-
-= link_to 'New article Posted', article_url(@article.id), class: 'btn btn-warning'
+= link_to 'New article Posted', article_url(@article.id)
+%br
+%br
+You receive this newsletter because you signed up to it on MyBlog website. If you believe this has been sent to you in error or you no longer wish to receive this newsletter, please safely unsubscribe.
+= link_to 'UnSubscribe', unsubscribe_users_index_url(id: @user.id)
