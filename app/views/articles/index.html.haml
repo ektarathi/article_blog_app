@@ -1,7 +1,7 @@
 = form_tag(articles_path, :method => "get", id: "search-form") do
   = text_field_tag :search, params[:search], placeholder: "Search Posts" 
   = submit_tag "Search", class: "btn btn-primary"
-  = link_to 'Back', articles_path , class: "btn btn-default"
+  = link_to 'Back', root_path , class: "btn btn-default"
 
 %h3{style: "text-align: center"} Welcome to the Articles Page
 .add-button
@@ -11,7 +11,7 @@
 %table.table.table-bordered
   %tr
     %th{style: "text-align: center"} Title
-    %th{style: "text-align: center"} Body Text
+    %th{style: "text-align: center"} Article Content
     %th{style: "width: auto; text-align: center"} Action
   - @articles.each do |article|
     %tr

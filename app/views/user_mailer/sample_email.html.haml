@@ -4,8 +4,10 @@
 
 %p= @article.body
 
+%strong Please find below the link to new article posted:
+%br
 = link_to 'New article Posted', article_url(@article.id)
 %br
 %br
 You receive this newsletter because you signed up to it on MyBlog website. If you believe this has been sent to you in error or you no longer wish to receive this newsletter, please safely unsubscribe.
-= link_to 'UnSubscribe', unsubscribe_users_index_url(id: @user.id)
+= link_to 'Unsubscribe', unsubscribe_users_index_url(id: @user.id)
